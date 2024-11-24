@@ -1,12 +1,6 @@
 import app from "./app";
-// dotenv
 
-import { config } from "dotenv";
-import path from "path";
-
-config({ path: path.join(__dirname, ".env") });
-
-const port = process.env.PORT || 5000;
+const port = 3002;
 
 app.listen(port, () => {
   /* eslint-disable no-console */

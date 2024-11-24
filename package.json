@@ -23,7 +23,8 @@
         "format": "eslint --fix && prettier --write",
         "typecheck": "tsc --noEmit",
         "sync-packages": "syncpack fix-mismatches",
-        "start:frontend": "yarn workspace frontend start"
+        "start:frontend": "yarn workspace frontend start",
+        "start:backend": "yarn workspace backend start"
     },
     "packageManager": "yarn@4.5.2"
 }
