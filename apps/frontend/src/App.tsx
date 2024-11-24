@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Chatbot from './components/Chatbot';
+import HomePage from './pages/HomePage';
+import ChatbotPage from './pages/ChatbotPage';
 
-function App() {
+const App: React.FC = () => {
+  // State to track which page is currently displayed
+  const [currentPage, setCurrentPage] = useState<'home' | 'chatbot'>('home');
+
+  const navigate = (page: 'home' | 'chatbot') => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="App">
-      <h1 className="title">MediMate</h1>
-      <div className="welcome">
-        <p>👋 <strong>Welcome!</strong></p>
-        <p>I'm MediMate</p>
-        <p>Ask me anything about the symptoms.</p>
-      </div>
-      <Chatbot />
+      {currentPage === 'home' && <HomePage navigateToChatbot={() => navigate('chatbot')} />}
+      {currentPage === 'chatbot' && <ChatbotPage navigateToHome={() => navigate('home')} />}
     </div>
   );
-}
+};
 
 export default App;
