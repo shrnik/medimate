@@ -13,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout_sidebar />}>
+            <Route path="" element={<Home />} />
             <Route path="home" element={<Home />} />
             <Route path="records" element={<Records />} />
           </Route>
