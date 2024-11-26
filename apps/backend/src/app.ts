@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
+import api from "./api";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -23,7 +24,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// serve all the files inside public/images
+app.use("/api", api);
 
 // set cors headers
 app.use((req, res, next) => {
@@ -33,9 +34,5 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-// app.use("/images", express.static("public/images"));
-
-// app.use(middlewares.notFound);
-// app.use(middlewares.errorHandler);
 
 export default app;
