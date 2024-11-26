@@ -1,25 +1,30 @@
 import { Outlet, Link } from "react-router-dom";
+import "../styles/layout_sidebar.css";
 
-const layout_sidebar = () => {
+const LayoutSidebar = () => {
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/records">Records</Link>
-          </li>
-          <li>
-            <Link to="/form">Form</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="layout-sidebar-wrapper">
+      {/* Sidebar */}
+      <div className="layout-sidebar-container">
+        <nav className="nav-container">
+          <Link to="/home">
+            <button className="nav-button">Home</button>
+          </Link>
+          <Link to="/records">
+            <button className="nav-button">Records</button>
+          </Link>
+          <Link to="/form">
+            <button className="nav-button">Form</button>
+          </Link>
+        </nav>
+      </div>
 
-      <Outlet />
-    </>
+      {/* Main Content */}
+      <div className="layout-main-content">
+        <Outlet />
+      </div>
+    </div>
   );
 };
 
-export default layout_sidebar;
+export default LayoutSidebar;

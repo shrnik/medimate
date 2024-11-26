@@ -1,0 +1,42 @@
+.home-container {
+  display: flex;
+  flex-direction: column; /* Change this to column for better alignment */
+  gap: 20px;
+  height: 100%; /* Ensure it takes up the full height */
+  padding: 20px;
+  background-color: var(--background-color);
+}
+
+/* Patient history section */
+.patient-history {
+  background-color: var(--secondary-background-color);
+  padding: 20px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  flex: 1;
+}
+
+/* Align Add New Patient button properly */
+.main-content {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex: 1; /* Ensure it takes up the remaining space */
+  margin-top: 20px; /* Add spacing from the patient history */
+}
+
+.add-patient-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: var(--button-background-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-patient-button:hover {
+  background-color: var(--button-hover-color);
+}
