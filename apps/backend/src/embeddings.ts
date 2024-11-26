@@ -2,6 +2,7 @@ import { ChromaClient } from "chromadb";
 import constants from "./constants";
 import dotenv from "dotenv";
 dotenv.config();
+console.log(process.env.CHROMADB_URL);
 
 const chroma = new ChromaClient({
   path: process.env.CHROMADB_URL,
