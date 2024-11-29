@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import "../styles/layout_sidebar.css";
+import { Button } from "../components/ui/button";
 
 const LayoutSidebar = () => {
   return (
@@ -8,7 +9,7 @@ const LayoutSidebar = () => {
       <div className="layout-sidebar-container">
         <nav className="nav-container">
           <Link to="/home">
-            <button className="nav-button">Home</button>
+            <Button>Home</Button>
           </Link>
           <Link to="/records">
             <button className="nav-button">Records</button>

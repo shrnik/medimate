@@ -1,24 +1,15 @@
 import express from "express";
 import { aiRouter } from "./chat";
+import { CompletionRequestBody } from "./types";
 
 const router = express.Router();
 
-router.get("/completion", async (req, res) => {
+router.post("/completion", async (req, res) => {
   try {
-    const { query } = req.query;
-    const { choices } = await aiRouter([
-      {
-        role: "user",
-        content: [
-          {
-            type: "text",
-            text: query as string,
-          },
-        ],
-      },
-    ]);
+    const { chat, patientInfo } = req.body as CompletionRequestBody;
+    const { choices } = await aiRouter({ chat, patientInfo });
     const response = choices[0].message;
-    res.json(response);
+    res.json({ data: response });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Something went wrong" });
