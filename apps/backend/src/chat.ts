@@ -119,6 +119,7 @@ const aiRouter = async (body: CompletionRequestBody) => {
           },
         ],
       },
+      ...query,
     ],
     response_format: {
       type: "text",

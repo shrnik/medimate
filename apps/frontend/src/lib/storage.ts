@@ -17,10 +17,19 @@ export const getPatients = (): Patient[] => {
   return patients ? JSON.parse(patients) : [];
 };
 
+export const getPatient = (patientId: string): Patient | undefined => {
+  const patients = getPatients();
+  return patients.find((patient) => patient.id === patientId);
+};
+
 export const savePatient = (patient: Patient) => {
   const patients = getPatients();
   const updatedPatients = [...patients, patient];
   localStorage.setItem("patients", JSON.stringify(updatedPatients));
+  // emit event
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new StorageEvent("storage", { key: "patients" }));
+  }
 };
 
 export const getChatMessages = (patientId: string): ChatMessage[] => {

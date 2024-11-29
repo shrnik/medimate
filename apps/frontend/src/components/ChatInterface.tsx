@@ -1,12 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  ChatMessage,
+  getChatMessages,
+  getPatient,
+  Patient,
+  saveChatMessage,
+} from "../lib/storage";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { ScrollArea } from "./ui/scroll-area";
-import { ChatMessage, getChatMessages, saveChatMessage } from "../lib/storage";
-import { useParams } from "react-router";
-import { Loader2 } from "lucide-react";
 
 interface ChatInterfaceProps {
   patientId: string;
@@ -15,7 +20,7 @@ interface ChatInterfaceProps {
 async function getChatResponse(
   patientId: string,
   query: string,
-  patientInfo: string
+  patientInfo: Patient | undefined
 ) {
   const allMessages = getChatMessages(patientId);
   const response = await fetch("http://localhost:3002/api/completion", {
@@ -47,6 +52,7 @@ export default function ChatInterface({ patientId }: ChatInterfaceProps) {
       setMessages([...messages, newMessage]);
       setInput("");
       setIsLoading(true);
+      const patientInfo = getPatient(patientId);
 
       // Simulate AI response
       // setTimeout(() => {
@@ -60,7 +66,7 @@ export default function ChatInterface({ patientId }: ChatInterfaceProps) {
       // }, 1000);
 
       // Get AI response
-      const response = await getChatResponse(patientId, input, "patientInfo");
+      const response = await getChatResponse(patientId, input, patientInfo);
       const { data } = response;
       const aiResponse: ChatMessage = {
         ...data,

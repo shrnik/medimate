@@ -8,6 +8,18 @@ import { Link } from "react-router-dom";
 
 export default function PatientList() {
   const [patients, setPatients] = useState<Patient[]>([]);
+  // listen to storage changes
+  useEffect(() => {
+    const listener = (e: StorageEvent) => {
+      if (e.key === "patients") {
+        setPatients(getPatients());
+      }
+    };
+    window.addEventListener("storage", listener);
+    return () => {
+      window.removeEventListener("storage", listener);
+    };
+  }, []);
 
   useEffect(() => {
     setPatients(getPatients());
