@@ -29,7 +29,7 @@ const getListOfDiseases = (
         content: [
           {
             type: "text",
-            text: `You are an expert at helping doctors analyze patient symptoms, consider medical history, and make well-informed recommendations for treatment or action. You only suggest a list diseases in descreasing order of likelihood and nothing else \n Use html tags for formatting. \n Do not talk about pubmed articles \n PatientInfo: ${JSON.stringify(patientInfo)} \n Here are some pubmed articles that might be related to patient's condition: ${context}`,
+            text: `You are an expert at helping doctors analyze patient symptoms, consider medical history, and make well-informed recommendations for treatment or action. You only suggest a list diseases in descreasing order of likelihood and nothing else \n Use html tags like <br> etc for formatting. Do no write the whole html file \n Do not talk about pubmed articles \n PatientInfo: ${JSON.stringify(patientInfo)} \n Here are some pubmed articles that might be related to patient's condition: ${context}`,
           },
         ],
       },
