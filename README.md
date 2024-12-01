@@ -2,6 +2,8 @@
 
 MediMate is a web application designed to provide medical assistance and information. The project consists of a backend API and a frontend user interface.
 
+[Visit MediMate](https://shrnik.github.io/medimate/)
+
 ## Getting Started
 
 ### Prerequisites
