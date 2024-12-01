@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/chat.css";
+import { Button } from "../components/ui/button";
 
 const Chat: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState<string>("");
-  const [patients, setPatients] = useState<{ name: string; age: string; gender: string }[]>([]);
+  const [patients, setPatients] = useState<
+    { name: string; age: string; gender: string }[]
+  >([]);
 
   useEffect(() => {
     // Load patients from localStorage when the component mounts
@@ -53,9 +56,7 @@ const Chat: React.FC = () => {
               placeholder="Type your message here..."
               className="chat-input"
             />
-            <button onClick={handleSend} className="chat-send-button">
-              Send
-            </button>
+            <Button onClick={handleSend}>Send</Button>
           </div>
         </div>
       </div>
