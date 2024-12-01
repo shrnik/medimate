@@ -89,7 +89,7 @@ const normalChat = async (
         content: [
           {
             type: "text",
-            text: `You are an expert at helping doctors analyze patient symptoms, consider medical history, and make well-informed recommendations for treatment or action. \n Do not talk about pubmed articles. \n PatientInfo: ${JSON.stringify(patientInfo)} \n Here are some Pubmed articles that might be related to patient's condition: ${context} . \n Use only HTML tags for formatting.`,
+            text: `You are an expert at helping doctors analyze patient symptoms, consider medical history, and make well-informed recommendations for treatment or action. \n Do not talk about pubmed articles. \n PatientInfo: ${JSON.stringify(patientInfo)} \n Here are some Pubmed articles that might be related to patient's condition: ${context} . \n Use only HTML tags for formatting. do not use markdown`,
           },
         ],
       },
