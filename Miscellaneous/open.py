@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = ""
 
 def query_openai(prompt, model="gpt-4"):
     try:
